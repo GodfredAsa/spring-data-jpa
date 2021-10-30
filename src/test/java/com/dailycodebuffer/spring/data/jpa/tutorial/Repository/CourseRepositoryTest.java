@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 
 import java.util.List;
@@ -65,9 +66,38 @@ class CourseRepositoryTest {
 
         courseList.stream().forEach(System.out::println);
 
-
-
     }
+//     Pagination By Sorting -- IN BUILT SORTING METHODS **  == THE VALUES ARE THE CLASS ATTRIBUTES ===
+    @Test
+    public void findAllSorting(){
+        Pageable sortByTitle =
+                PageRequest.of(0,2,
+                        Sort.by("courseTitle"));
+
+        Pageable sortByCreditDesc =
+                PageRequest.of(0,2,
+                Sort.by("courseCredit").descending());
+
+        Pageable sortByTitleAndCreditDesc = PageRequest.of(
+                0,2, Sort.by("courseTitle")
+                        .descending()
+                        .and(Sort.by("courseCredit")
+                                .descending()));
+
+        List<Course> courses = courseRepository.findAll(sortByTitleAndCreditDesc).getContent();
+        courses.stream().forEach(System.out::println);
+    }
+
+
+//    CUSTOM SORTING IMPLEMENTATION
+//    @Test
+//    public void printFindByTitleContaining(){
+//        Pageable firstTenPageRecords =
+//                PageRequest.of(0, 10);
+//
+////        List<Course> courses = courseRepository.findByTitleContaining("Data",firstTenPageRecords).getContent();
+//    }
+
 
 
 
