@@ -86,6 +86,10 @@ class CourseRepositoryTest {
 
         List<Course> courses = courseRepository.findAll(sortByTitleAndCreditDesc).getContent();
         courses.stream().forEach(System.out::println);
+
+        System.out.println("*********************************************************");
+        List<Course> myCourses = courseRepository.findAll(sortByTitle).getContent();
+        myCourses.stream().forEach(System.out::println);
     }
 
 
