@@ -24,14 +24,14 @@ public class Teacher {
 
 
 //    1 teacher can teach List<Course> --> OneToMany
-//    @OneToMany(
-//            cascade = CascadeType.ALL
-//    )
-//    @JoinColumn(
-//            name  = "teacher_Id",
-//            referencedColumnName = "teacherId"
-//    )
-//    private List<Course> courses;
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name  = "teacher_Id",
+            referencedColumnName = "teacherId"
+    )
+    private List<Course> courses;
 
 
 }

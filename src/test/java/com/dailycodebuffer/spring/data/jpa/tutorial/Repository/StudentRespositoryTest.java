@@ -18,15 +18,15 @@ class StudentRespositoryTest {
     @Test
     public void saveStudent(){
         Guardian guardian = Guardian.builder()
-                .name("Angelina Kyeah")
-                .guardianEmail("angelkyeah@forreal.com")
-                .mobile("0544704424")
+                .name("Angelica Kyeah")
+                .guardianEmail("angelica@gmail.com")
+                .mobile("0544704432")
                 .build();
         
         Student student = Student.builder()
-                .firstName("Patience")
-                .lastName("Ewusie")
-                .studentEmail("pewusie@gmail.com")
+                .firstName("Kobina")
+                .lastName("Cheah")
+                .studentEmail("kobicheah@gmail.com")
                 .guardian(guardian)
                 .build();
         System.out.println(student);
@@ -112,13 +112,13 @@ class StudentRespositoryTest {
     }
 
 //    Pagination in Students
-    @Test
-    public void findAllPageOfStudent(){
-        Pageable firstThreePages = PageRequest.of(0,4);
-
-        List<Student> studentPage = studentRespository.findAll(firstThreePages).getContent();
-        studentPage.stream().forEach(System.out::println);
-    }
+//    @Test
+//    public void findAllPageOfStudent(){
+//        Pageable firstThreePages = PageRequest.of(0,4);
+//
+//        List<Student> studentPage = studentRespository.findAll(firstThreePages).getContent();
+//        studentPage.stream().forEach(System.out::println);
+//    }
 
 
 

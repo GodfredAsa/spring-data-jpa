@@ -35,8 +35,8 @@ class CourseRepositoryTest {
     }
 
     @Test
-    public void printCourseByEmail(){
-        List<Course> courseList = courseRepository.findCourseByCourseTitle("Data Science");
+    public void printCourseByTitle(){
+        Course courseList = courseRepository.findCourseByCourseTitle("Python");
         System.out.println(courseList);
     }
 
@@ -84,7 +84,10 @@ class CourseRepositoryTest {
                         .and(Sort.by("courseCredit")
                                 .descending()));
 
-        List<Course> courses = courseRepository.findAll(sortByTitleAndCreditDesc).getContent();
+        List<Course> courses = courseRepository
+                .findAll(sortByTitleAndCreditDesc)
+                .getContent();
+
         courses.stream().forEach(System.out::println);
 
         System.out.println("*********************************************************");
@@ -94,13 +97,15 @@ class CourseRepositoryTest {
 
 
 //    CUSTOM SORTING IMPLEMENTATION
-//    @Test
-//    public void printFindByTitleContaining(){
-//        Pageable firstTenPageRecords =
-//                PageRequest.of(0, 10);
-//
-////        List<Course> courses = courseRepository.findByTitleContaining("Data",firstTenPageRecords).getContent();
-//    }
+    @Test
+    public void printFindByTitleContaining(){
+        Pageable firstPageTenRecords =
+                PageRequest.of(0, 10);
+
+        List<Course> courses = courseRepository
+                .findByCourseTitleContaining("D", firstPageTenRecords)
+                .getContent();
+    }
 
 
 

@@ -24,6 +24,8 @@ public class Course {
     )
     private CourseMaterial courseMaterial;
 
+
+//Many courses can be taught by a teacher
     @ManyToOne(
             cascade = CascadeType.ALL
     )
