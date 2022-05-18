@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface StudentRespository  extends JpaRepository<Student, Long> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
 
 //    Methods for finding student
     List<Student> findStudentByFirstName(String firstName);
@@ -28,6 +28,8 @@ public interface StudentRespository  extends JpaRepository<Student, Long> {
 
     @Query("select s.firstName, s.lastName from Student s where s.studentEmail = ?1 ")
     String getStudentFirstNameAndLastNameByEmailAddress(String studentEmail);
+
+
 
 
 //   Native Queries: used for complex data selection && WRITTEN IN SQL SYNTAX

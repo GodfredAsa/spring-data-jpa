@@ -1,15 +1,13 @@
 package com.dailycodebuffer.spring.data.jpa.tutorial.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -24,13 +22,8 @@ public class Teacher {
 
 
 //    1 teacher can teach List<Course> --> OneToMany
-    @OneToMany(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name  = "teacher_Id",
-            referencedColumnName = "teacherId"
-    )
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name  = "teacher_Id", referencedColumnName = "teacherId")
     private List<Course> courses;
 
 

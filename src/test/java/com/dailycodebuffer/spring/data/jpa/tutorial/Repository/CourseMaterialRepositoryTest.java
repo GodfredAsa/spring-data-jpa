@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 
 //not working
@@ -27,7 +27,7 @@ class CourseMaterialRepositoryTest {
                 .courseTitle("Business Intelligence")
                 .courseCredit(4)
                 .build();
-//        courseRepository.save(course);
+        courseRepository.save(course);
 
         CourseMaterial courseMaterial = CourseMaterial.builder()
                 .courseUrl("www.ait.edu.gh")

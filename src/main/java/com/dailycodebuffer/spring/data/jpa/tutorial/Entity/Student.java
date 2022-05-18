@@ -1,7 +1,6 @@
 package com.dailycodebuffer.spring.data.jpa.tutorial.Entity;
 
 
-import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,14 +27,12 @@ public class Student {
     private Long studentId;
     private String firstName;
     private String lastName;
-    @Column(
-            name = "student_email",
-            nullable = false
 
-    )
+    @Column(name = "student_email", nullable = false)
     private String studentEmail;
 
     @Embedded
     private Guardian guardian;
+
 
 }

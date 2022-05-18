@@ -1,14 +1,12 @@
 package com.dailycodebuffer.spring.data.jpa.tutorial.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -19,12 +17,12 @@ public class CourseMaterial {
     private Long courseMaterialID;
     private String courseUrl;
 
-    @OneToOne(
-            /**
-             * when saving a course courseMaterial is required.
-             * You cant save a course without a course Material
-             */
 
+    /*
+     * when saving a course courseMaterial is required.
+     * You can't save a course without a course Material
+     */
+    @OneToOne(
             cascade = CascadeType.ALL,
             fetch  = FetchType.LAZY,
             optional = false // default optional = true,

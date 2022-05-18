@@ -1,14 +1,12 @@
 package com.dailycodebuffer.spring.data.jpa.tutorial.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -19,19 +17,13 @@ public class Course {
     private String courseTitle;
     private Integer courseCredit;
 
-    @OneToOne(
-            mappedBy = "course" //course attribute in CourseMaterial
-    )
+    @OneToOne(mappedBy = "course")
     private CourseMaterial courseMaterial;
 
 
 //Many courses can be taught by a teacher
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(name = "teacher_teacher_id",
-    referencedColumnName = "teacherId"
-    )
+    @ManyToOne( cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacher_teacher_id", referencedColumnName = "teacherId")
     private Teacher teacher;
 
 
