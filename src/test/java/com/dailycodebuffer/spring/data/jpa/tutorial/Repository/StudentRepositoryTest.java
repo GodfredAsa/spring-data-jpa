@@ -116,11 +116,4 @@ class StudentRepositoryTest {
 //        List<Student> studentPage = studentRepository.findAll((org.springframework.data.domain.Pageable) firstThreePages).getContent();
 //        studentPage.forEach(System.out::println);
 //    }
-
-
-
-
-
-
-
 }
